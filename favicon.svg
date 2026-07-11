@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Background -->
-  <rect width="32" height="32" rx="6" fill="#141110"/>
-  <!-- Monitor frame -->
-  <rect x="3" y="5" width="26" height="17" rx="3" fill="#1a1614" stroke="#e85030" stroke-width="1.5"/>
-  <!-- Title bar divider -->
-  <line x1="3.75" y1="10.5" x2="28.25" y2="10.5" stroke="#e85030" stroke-width="1" stroke-opacity="0.4"/>
-  <!-- Ball -->
-  <circle cx="16" cy="16.5" r="5" fill="#e85030"/>
-  <!-- Ball gloss highlight -->
-  <circle cx="14.2" cy="14.6" r="1.6" fill="white" fill-opacity="0.22"/>
+  <rect width="32" height="32" rx="6" fill="#faf3e7"/>
+  <rect x="3" y="5" width="26" height="17" rx="3" fill="#fffdf6" stroke="#4c86d9" stroke-width="1.5"/>
+  <line x1="3.75" y1="10.5" x2="28.25" y2="10.5" stroke="#4c86d9" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="16" cy="16.5" r="5" fill="#df574a"/>
+  <path d="M13 13.6 L15.2 14.9" stroke="#2e2018" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+  <path d="M16.8 14.9 L19 13.6" stroke="#2e2018" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+  <circle cx="14.4" cy="15.8" r="0.9" fill="#2e2018"/>
+  <circle cx="17.6" cy="15.8" r="0.9" fill="#2e2018"/>
+  <path d="M14.4 18 Q16 19.4 17.6 18" stroke="#2e2018" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+  <circle cx="14.2" cy="14.2" r="1.4" fill="white" fill-opacity="0.35"/>
 </svg>
