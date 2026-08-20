@@ -6,10 +6,10 @@
   <title>Siegward Games</title>
   <meta name="description" content="Siegward Games is a one-person indie studio making Desktop Bouncer, a desktop overlay game where cute bouncing balls live on your screen. Wishlist on Steam." />
 
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/png" href="./assets/logo-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -29,25 +29,14 @@
     <div class="nav-inner">
 
       <a href="#hero" class="nav-logo" aria-label="Siegward Games home">
-        <svg class="logo-mark" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="1" y="1" width="26" height="19" rx="3.5" stroke="currentColor" stroke-width="1.8"/>
-          <line x1="1.9" y1="7.5" x2="26.1" y2="7.5" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.45"/>
-          <circle cx="5.5" cy="4.5" r="1.3" fill="currentColor" fill-opacity="0.55"/>
-          <circle cx="9.2" cy="4.5" r="1.3" fill="currentColor" fill-opacity="0.35"/>
-          <circle cx="14" cy="14.5" r="5.2" fill="currentColor"/>
-          <circle cx="12.2" cy="13.8" r="1.05" fill="#fdf8ee"/>
-          <circle cx="15.8" cy="13.8" r="1.05" fill="#fdf8ee"/>
-          <path d="M12.1 16.2 Q14 17.8 15.9 16.2" stroke="#fdf8ee" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M10.5 20 L9.5 24.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          <path d="M17.5 20 L18.5 24.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-          <line x1="7" y1="24.5" x2="21" y2="24.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
-        </svg>
-        <span class="logo-text">Siegward Games</span>
+        <img class="logo-mark" src="assets/logo-mark.png" alt="" width="28" height="28" />
+        <span class="logo-text pixel-word">Siegward</span>
       </a>
 
       <ul class="nav-links" role="list">
         <li><a href="#about">About</a></li>
-        <li><a href="#game">Game</a></li>
+        <li><a href="#game">Games</a></li>
+        <li><a href="#support">Support</a></li>
         <li><a href="#contact" class="nav-cta-link">Contact</a></li>
       </ul>
 
@@ -63,7 +52,8 @@
     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
     <ul role="list">
       <li><a href="#about">About</a></li>
-      <li><a href="#game">Game</a></li>
+      <li><a href="#game">Games</a></li>
+      <li><a href="#support">Support</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -75,7 +65,7 @@
 
       <div class="hero-badge reveal">dev log &middot; work in progress</div>
 
-      <h1 class="hero-title reveal rv-d1">Siegward<br><span class="accent-text">Games</span></h1>
+      <h1 class="hero-title pixel-word reveal rv-d1">Siegward<br><span class="accent-text">Games</span></h1>
 
       <p class="hero-subtitle reveal rv-d2">
         Hi! I'm a one-person studio making little desktop friends.
@@ -251,17 +241,74 @@
   </section>
 
 
-  <!-- Current game -->
+  <!-- Games -->
   <section class="section section-alt" id="game">
     <div class="container">
-      <p class="eyebrow centered reveal">Current Project</p>
+      <p class="eyebrow centered reveal">Our Games</p>
+      <h2 class="section-heading centered reveal rv-d1">What We're<br><span class="accent-text">Building</span></h2>
+      <p class="section-sub reveal rv-d2">Three small games from one small studio. Drag, scroll, or use the arrows.</p>
+
+      <div class="game-slider reveal rv-d2">
+        <button type="button" class="slider-arrow slider-arrow-prev" id="sliderPrev" aria-label="Previous game">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="slider-track" id="gameSliderTrack">
+
+          <article class="game-slide slide-bouncer">
+            <div class="slide-badge slide-badge-soon">Releasing August 21, 2026</div>
+            <div class="slide-logo-wrap">
+              <img class="slide-logo" src="assets/games/desktop-bouncer-logo.png" alt="Desktop Bouncer" loading="lazy" />
+            </div>
+            <div class="slide-content">
+              <h3>Desktop Bouncer</h3>
+              <p>Three bouncy balls move onto your desktop and turn your screen into their playground. Our flagship game, closest to launch.</p>
+              <a class="btn btn-primary btn-sm" href="https://store.steampowered.com/app/4749880/Desktop_Bouncer/" target="_blank" rel="noopener noreferrer">Wishlist on Steam</a>
+            </div>
+          </article>
+
+          <article class="game-slide has-cover" style="--slide-cover: url('assets/games/spirit-animals-hero.jpg');">
+            <div class="slide-badge slide-badge-dev">In Development</div>
+            <div class="slide-content">
+              <h3>Desktop Spirit Animals</h3>
+              <p>A small animal moves into your desktop. It eats, wanders, and naps, and grows alongside your workday.</p>
+              <a class="btn btn-ghost btn-sm" href="https://store.steampowered.com/curator/46158715" target="_blank" rel="noopener noreferrer">View on Steam Curator</a>
+            </div>
+          </article>
+
+          <article class="game-slide slide-bear">
+            <div class="slide-badge slide-badge-dev">In Development</div>
+            <div class="slide-logo-wrap">
+              <img class="slide-logo" src="assets/games/bear-the-burn-logo.png" alt="Bear The Burn: A Stock Market Deckbuilder" loading="lazy" />
+            </div>
+            <div class="slide-content">
+              <h3>Bear The Burn</h3>
+              <p>A ruthless desktop-overlay deckbuilder. Buy shady trading cards, swing the charts, and decide when to cash out.</p>
+              <a class="btn btn-ghost btn-sm" href="https://store.steampowered.com/curator/46158715" target="_blank" rel="noopener noreferrer">View on Steam Curator</a>
+            </div>
+          </article>
+
+        </div>
+
+        <button type="button" class="slider-arrow slider-arrow-next" id="sliderNext" aria-label="Next game">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Choose a game"></div>
+
+      <p class="eyebrow centered reveal game-detail-eyebrow">A Closer Look</p>
       <h2 class="section-heading centered reveal rv-d1">Desktop<br><span class="accent-text">Bouncer</span></h2>
 
       <div class="game-card reveal rv-d2">
         <div class="game-top">
           <div class="status-line">
             <span class="status-dot" aria-hidden="true"></span>
-            <span>In development. Features and visuals may change.</span>
+            <span>In development. Releasing August 21, 2026.</span>
           </div>
         </div>
 
@@ -318,6 +365,35 @@
               <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.187.008l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.455 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
             </svg>
             Wishlist on Steam
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Supporter Pack -->
+  <section class="section" id="support">
+    <div class="container">
+      <div class="support-card reveal">
+        <img class="support-banner" src="assets/games/desktop-bouncer-supporter.jpg" alt="Desktop Bouncer Supporter Pack" loading="lazy" />
+        <div class="support-body">
+          <p class="eyebrow">Support The Studio</p>
+          <div class="support-heading-row">
+            <h2 class="support-heading">Help keep the balls bouncing</h2>
+            <img class="support-thanks" src="assets/games/thanks.gif" alt="A pixel-art character holding a thank-you sign" loading="lazy" />
+          </div>
+          <p class="body-text">
+            The Supporter Pack is a small optional way to back Desktop Bouncer and this one-person studio.
+            It costs a little extra and gives nothing back but our gratitude, which is considerable.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://store.steampowered.com/app/4871310/Desktop_Bouncer__Supporter_Pack/?beta=0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get the Supporter Pack
           </a>
         </div>
       </div>
@@ -392,19 +468,8 @@
       <div class="footer-inner">
 
         <div class="footer-brand">
-          <svg class="logo-mark logo-mark-sm" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="1" y="1" width="26" height="19" rx="3.5" stroke="currentColor" stroke-width="1.8"/>
-            <line x1="1.9" y1="7.5" x2="26.1" y2="7.5" stroke="currentColor" stroke-width="1.2" stroke-opacity="0.45"/>
-            <circle cx="5.5" cy="4.5" r="1.3" fill="currentColor" fill-opacity="0.55"/>
-            <circle cx="9.2" cy="4.5" r="1.3" fill="currentColor" fill-opacity="0.35"/>
-            <circle cx="14" cy="14.5" r="5.2" fill="currentColor"/>
-            <circle cx="12.2" cy="13.8" r="1.05" fill="#fdf8ee"/>
-            <circle cx="15.8" cy="13.8" r="1.05" fill="#fdf8ee"/>
-            <path d="M10.5 20 L9.5 24.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <path d="M17.5 20 L18.5 24.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <line x1="7" y1="24.5" x2="21" y2="24.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
-          </svg>
-          <span class="footer-name">Siegward Games</span>
+          <img class="logo-mark logo-mark-sm" src="assets/logo-mark.png" alt="" width="24" height="24" />
+          <span class="footer-name pixel-word">Siegward</span>
         </div>
 
         <p class="footer-sub">Made by one human and three balls</p>

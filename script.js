@@ -491,4 +491,53 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(loop);
   }
 
+
+  /* Games slider: arrows + dots drive a native scroll-snap track */
+  const sliderTrack = document.getElementById('gameSliderTrack');
+  const sliderDots   = document.getElementById('sliderDots');
+  const sliderPrev   = document.getElementById('sliderPrev');
+  const sliderNext   = document.getElementById('sliderNext');
+
+  if (sliderTrack && sliderDots && sliderPrev && sliderNext) {
+    const slides = Array.from(sliderTrack.children);
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'slider-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+      dot.addEventListener('click', () => {
+        slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      });
+      sliderDots.appendChild(dot);
+    });
+    const dots = Array.from(sliderDots.children);
+    if (dots[0]) dots[0].classList.add('is-active');
+
+    function stepTo(dir) {
+      const card = slides[0];
+      const gap = 20;
+      const distance = card.getBoundingClientRect().width + gap;
+      sliderTrack.scrollBy({ left: dir * distance, behavior: 'smooth' });
+    }
+
+    sliderPrev.addEventListener('click', () => stepTo(-1));
+    sliderNext.addEventListener('click', () => stepTo(1));
+
+    if ('IntersectionObserver' in window) {
+      const dotObserver = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const i = slides.indexOf(entry.target);
+            if (i === -1) return;
+            dots[i].classList.toggle('is-active', entry.isIntersecting && entry.intersectionRatio > 0.6);
+          });
+        },
+        { root: sliderTrack, threshold: [0, 0.6, 1] }
+      );
+      slides.forEach(slide => dotObserver.observe(slide));
+    }
+  }
+
 });
