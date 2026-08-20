@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siegward Games</title>
+  <meta name="description" content="Siegward Games is a one-person indie studio making Desktop Bouncer, a desktop overlay game where cute bouncing balls live on your screen. Wishlist on Steam." />
+
+  <link rel="icon" type="image/png" href="./assets/logo-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-soft" aria-hidden="true">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+
+  <!-- Interactive ball characters, see script.js -->
+  <canvas id="ballCanvas" aria-hidden="true"></canvas>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+      <a href="#hero" class="nav-logo" aria-label="Siegward Games home">
+        <img class="logo-mark" src="assets/logo-mark.png" alt="" width="28" height="28" />
+        <span class="logo-text pixel-word">Siegward</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#game">Games</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#contact" class="nav-cta-link">Contact</a></li>
+      </ul>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button>
+    <ul role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#game">Games</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+
+      <div class="hero-badge reveal">dev log &middot; work in progress</div>
+
+      <h1 class="hero-title pixel-word reveal rv-d1">Siegward<br><span class="accent-text">Games</span></h1>
+
+      <p class="hero-subtitle reveal rv-d2">
+        Hi! I'm a one-person studio making little desktop friends.
+        Right now that means three very bouncy balls that live on your screen
+        and mostly behave.
+      </p>
+
+      <div class="hero-buttons reveal rv-d3">
+        <a
+          href="https://store.steampowered.com/app/4749880/Desktop_Bouncer/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.187.008l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.455 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+          </svg>
+          Wishlist on Steam
+        </a>
+        <a href="#contact" class="btn btn-ghost">Say hello</a>
+      </div>
+
+      <p class="hero-hint reveal rv-d4">psst: the balls on this page follow your cursor. Stop moving for a while and they'll doze off.</p>
+
+    </div>
+
+    <div class="hero-visual reveal rv-d2" aria-hidden="true">
+      <div class="mascot-stage">
+
+        <!-- Red -->
+        <div class="m-wrap m1">
+          <svg viewBox="0 0 100 108" xmlns="http://www.w3.org/2000/svg" class="mascot-svg">
+            <defs>
+              <radialGradient id="m1b" cx="36%" cy="28%" r="72%">
+                <stop offset="0%"   stop-color="#f28170"/>
+                <stop offset="52%"  stop-color="#df574a"/>
+                <stop offset="100%" stop-color="#93281f"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="50" cy="104" rx="26" ry="5" fill="#3a2c22" fill-opacity="0.14"/>
+            <circle cx="50" cy="52" r="46" fill="url(#m1b)"/>
+            <ellipse cx="34" cy="31" rx="15" ry="10" fill="white" fill-opacity="0.25" transform="rotate(-22 34 31)"/>
+            <ellipse cx="30" cy="27" rx="6" ry="4" fill="white" fill-opacity="0.28" transform="rotate(-22 30 27)"/>
+            <circle cx="37" cy="50" r="9.5" fill="white"/>
+            <circle cx="63" cy="50" r="9.5" fill="white"/>
+            <circle cx="38.5" cy="51" r="5.8" fill="#2b1a14"/>
+            <circle cx="64.5" cy="51" r="5.8" fill="#2b1a14"/>
+            <circle cx="41" cy="48" r="2.4" fill="white"/>
+            <circle cx="37" cy="53.5" r="1.1" fill="rgba(255,255,255,0.55)"/>
+            <circle cx="67" cy="48" r="2.4" fill="white"/>
+            <circle cx="63" cy="53.5" r="1.1" fill="rgba(255,255,255,0.55)"/>
+            <path d="M28 35.5 Q37 36 44.5 42.5" stroke="#93281f" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <path d="M55.5 42.5 Q63 36 72 35.5" stroke="#93281f" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+            <circle cx="26" cy="60" r="9.5" fill="#ff9a86" fill-opacity="0.35"/>
+            <circle cx="74" cy="60" r="9.5" fill="#ff9a86" fill-opacity="0.35"/>
+            <path d="M43 68.5 Q50 73 57 68.5" stroke="#93281f" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- Blue -->
+        <div class="m-wrap m2">
+          <svg viewBox="0 0 100 108" xmlns="http://www.w3.org/2000/svg" class="mascot-svg">
+            <defs>
+              <radialGradient id="m2b" cx="36%" cy="28%" r="72%">
+                <stop offset="0%"   stop-color="#8ab6f2"/>
+                <stop offset="52%"  stop-color="#4c86d9"/>
+                <stop offset="100%" stop-color="#27508f"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="50" cy="104" rx="26" ry="5" fill="#3a2c22" fill-opacity="0.12"/>
+            <circle cx="50" cy="52" r="46" fill="url(#m2b)"/>
+            <ellipse cx="34" cy="31" rx="15" ry="10" fill="white" fill-opacity="0.22" transform="rotate(-22 34 31)"/>
+            <ellipse cx="30" cy="27" rx="6" ry="4" fill="white" fill-opacity="0.24" transform="rotate(-22 30 27)"/>
+            <circle cx="37" cy="50" r="9.5" fill="white"/>
+            <circle cx="63" cy="50" r="9.5" fill="white"/>
+            <circle cx="38" cy="51" r="5.8" fill="#1c2b45"/>
+            <circle cx="64" cy="51" r="5.8" fill="#1c2b45"/>
+            <circle cx="40.5" cy="48" r="2.4" fill="white"/>
+            <circle cx="36.5" cy="54" r="1.1" fill="rgba(255,255,255,0.55)"/>
+            <circle cx="66.5" cy="48" r="2.4" fill="white"/>
+            <circle cx="62.5" cy="54" r="1.1" fill="rgba(255,255,255,0.55)"/>
+            <path d="M29 37.5 Q37 33 45 36.5" stroke="#27508f" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <path d="M55 36.5 Q63 32.5 71 36.5" stroke="#27508f" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+            <circle cx="26" cy="60" r="9.5" fill="#b0d0f7" fill-opacity="0.4"/>
+            <circle cx="74" cy="60" r="9.5" fill="#b0d0f7" fill-opacity="0.4"/>
+            <ellipse cx="50" cy="69" rx="7" ry="5" fill="#27508f"/>
+            <ellipse cx="50" cy="69" rx="5.2" ry="3.6" fill="#5d96e3"/>
+          </svg>
+        </div>
+
+        <!-- Green -->
+        <div class="m-wrap m3">
+          <svg viewBox="0 0 100 108" xmlns="http://www.w3.org/2000/svg" class="mascot-svg">
+            <defs>
+              <radialGradient id="m3b" cx="36%" cy="28%" r="72%">
+                <stop offset="0%"   stop-color="#8fd6a5"/>
+                <stop offset="52%"  stop-color="#55a868"/>
+                <stop offset="100%" stop-color="#2b5e3b"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="50" cy="104" rx="26" ry="5" fill="#3a2c22" fill-opacity="0.11"/>
+            <circle cx="50" cy="52" r="46" fill="url(#m3b)"/>
+            <ellipse cx="34" cy="31" rx="15" ry="10" fill="white" fill-opacity="0.2" transform="rotate(-22 34 31)"/>
+            <ellipse cx="30" cy="27" rx="6" ry="4" fill="white" fill-opacity="0.22" transform="rotate(-22 30 27)"/>
+            <circle cx="37" cy="51" r="8.5" fill="white"/>
+            <circle cx="63" cy="51" r="8.5" fill="white"/>
+            <circle cx="38" cy="52" r="5" fill="#1d3324"/>
+            <circle cx="64" cy="52" r="5" fill="#1d3324"/>
+            <circle cx="40" cy="49.5" r="2" fill="white"/>
+            <circle cx="37" cy="54" r="0.9" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="66" cy="49.5" r="2" fill="white"/>
+            <circle cx="63" cy="54" r="0.9" fill="rgba(255,255,255,0.5)"/>
+            <path d="M30 40.5 Q37 37.5 44 40" stroke="#2b5e3b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M56 40 Q63 37 70 40.5" stroke="#2b5e3b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="26" cy="60" r="9.5" fill="#a8e0ba" fill-opacity="0.4"/>
+            <circle cx="74" cy="60" r="9.5" fill="#a8e0ba" fill-opacity="0.4"/>
+            <path d="M41 67 Q50 74 59 67" stroke="#2b5e3b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-col-text">
+          <p class="eyebrow reveal">The Studio</p>
+          <h2 class="section-heading reveal rv-d1">Small studio,<br><span class="accent-text">big bounces</span></h2>
+          <p class="body-text reveal rv-d2">
+            Siegward Games is one desk, one developer, and an unreasonable
+            amount of thought about how a ball should wobble. I make lightweight,
+            playful games that live on your desktop instead of staying stuck in
+            a window.
+          </p>
+          <p class="body-text reveal rv-d3">
+            Everything here is built, tested and tweaked by one person, so
+            updates land when they're ready. The goal stays the same: small
+            games that feel good to have around every day.
+          </p>
+        </div>
+
+        <div class="about-col-card reveal rv-d2">
+          <div class="info-card">
+            <div class="info-stat-row">
+              <div class="info-stat">
+                <span class="info-num">0</span>
+                <span class="info-label">Coffees knocked off desks (so far)</span>
+              </div>
+              <div class="info-stat">
+                <span class="info-num">0</span>
+                <span class="info-label">Excel files closed by a stray ball</span>
+              </div>
+            </div>
+            <blockquote class="studio-quote">
+              "Games that live alongside you, not just in a window."
+            </blockquote>
+            <div class="tag-row">
+              <span class="chip">Desktop Overlay</span>
+              <span class="chip">Indie</span>
+              <span class="chip">Physics</span>
+              <span class="chip">Cozy</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Games -->
+  <section class="section section-alt" id="game">
+    <div class="container">
+      <p class="eyebrow centered reveal">Our Games</p>
+      <h2 class="section-heading centered reveal rv-d1">What We're<br><span class="accent-text">Building</span></h2>
+      <p class="section-sub reveal rv-d2">Three small games from one small studio. Drag, scroll, or use the arrows.</p>
+
+      <div class="game-slider reveal rv-d2">
+        <button type="button" class="slider-arrow slider-arrow-prev" id="sliderPrev" aria-label="Previous game">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="slider-track" id="gameSliderTrack">
+
+          <article class="game-slide slide-bouncer">
+            <div class="slide-badge slide-badge-soon">Releasing August 21, 2026</div>
+            <div class="slide-logo-wrap">
+              <img class="slide-logo" src="assets/games/desktop-bouncer-logo.png" alt="Desktop Bouncer" loading="lazy" />
+            </div>
+            <div class="slide-content">
+              <h3>Desktop Bouncer</h3>
+              <p>Three bouncy balls move onto your desktop and turn your screen into their playground. Our flagship game, closest to launch.</p>
+              <a class="btn btn-primary btn-sm" href="https://store.steampowered.com/app/4749880/Desktop_Bouncer/" target="_blank" rel="noopener noreferrer">Wishlist on Steam</a>
+            </div>
+          </article>
+
+          <article class="game-slide has-cover" style="--slide-cover: url('assets/games/spirit-animals-hero.jpg');">
+            <div class="slide-badge slide-badge-dev">In Development</div>
+            <div class="slide-content">
+              <h3>Desktop Spirit Animals</h3>
+              <p>A small animal moves into your desktop. It eats, wanders, and naps, and grows alongside your workday.</p>
+              <a class="btn btn-ghost btn-sm" href="https://store.steampowered.com/curator/46158715" target="_blank" rel="noopener noreferrer">View on Steam Curator</a>
+            </div>
+          </article>
+
+          <article class="game-slide slide-bear">
+            <div class="slide-badge slide-badge-dev">In Development</div>
+            <div class="slide-logo-wrap">
+              <img class="slide-logo" src="assets/games/bear-the-burn-logo.png" alt="Bear The Burn: A Stock Market Deckbuilder" loading="lazy" />
+            </div>
+            <div class="slide-content">
+              <h3>Bear The Burn</h3>
+              <p>A ruthless desktop-overlay deckbuilder. Buy shady trading cards, swing the charts, and decide when to cash out.</p>
+              <a class="btn btn-ghost btn-sm" href="https://store.steampowered.com/curator/46158715" target="_blank" rel="noopener noreferrer">View on Steam Curator</a>
+            </div>
+          </article>
+
+        </div>
+
+        <button type="button" class="slider-arrow slider-arrow-next" id="sliderNext" aria-label="Next game">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Choose a game"></div>
+
+      <p class="eyebrow centered reveal game-detail-eyebrow">A Closer Look</p>
+      <h2 class="section-heading centered reveal rv-d1">Desktop<br><span class="accent-text">Bouncer</span></h2>
+
+      <div class="game-card reveal rv-d2">
+        <div class="game-top">
+          <div class="status-line">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>In development. Releasing August 21, 2026.</span>
+          </div>
+        </div>
+
+        <p class="game-desc">
+          Desktop Bouncer is a small overlay game where three ball characters
+          move in on your desktop. They bounce around your windows and react to
+          what you're doing with squishy, hand-tuned physics. It's still in
+          active development, so anything you see here may change.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-tile reveal rv-d1">
+            <div class="feature-face face-red" aria-hidden="true"><span class="ff-mouth"></span></div>
+            <div>
+              <strong>Lives on your desktop</strong>
+              <span>A real overlay, not a window. The balls sit on top of your workspace without stealing focus or blocking clicks.</span>
+            </div>
+          </div>
+          <div class="feature-tile reveal rv-d2">
+            <div class="feature-face face-blue" aria-hidden="true"><span class="ff-mouth ff-mouth-open"></span></div>
+            <div>
+              <strong>Squishy real-time physics</strong>
+              <span>Bouncing, rolling, squash and stretch, with collisions tuned until they felt right.</span>
+            </div>
+          </div>
+          <div class="feature-tile reveal rv-d3">
+            <div class="feature-face face-green" aria-hidden="true"><span class="ff-mouth"></span></div>
+            <div>
+              <strong>Three little personalities</strong>
+              <span>Red is dramatic, Blue is way too excited about everything, and Green mostly wants a nap.</span>
+            </div>
+          </div>
+          <div class="feature-tile reveal rv-d4">
+            <div class="feature-face face-sleepy" aria-hidden="true"><span class="ff-mouth ff-mouth-tiny"></span></div>
+            <div>
+              <strong>Light on your PC</strong>
+              <span>Small footprint and low CPU use. Made to run quietly in the background all day.</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="game-footnote">
+          The base game will be free. Optional cosmetic extras may come later.
+        </p>
+
+        <div class="game-cta">
+          <a
+            href="https://store.steampowered.com/app/4749880/Desktop_Bouncer/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+          >
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.187.008l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.606 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.455 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/>
+            </svg>
+            Wishlist on Steam
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Supporter Pack -->
+  <section class="section" id="support">
+    <div class="container">
+      <div class="support-card reveal">
+        <img class="support-banner" src="assets/games/desktop-bouncer-supporter.jpg" alt="Desktop Bouncer Supporter Pack" loading="lazy" />
+        <div class="support-body">
+          <p class="eyebrow">Support The Studio</p>
+          <div class="support-heading-row">
+            <h2 class="support-heading">Help keep the balls bouncing</h2>
+            <img class="support-thanks" src="assets/games/thanks.gif" alt="A pixel-art character holding a thank-you sign" loading="lazy" />
+          </div>
+          <p class="body-text">
+            The Supporter Pack is a small optional way to back Desktop Bouncer and this one-person studio.
+            It costs a little extra and gives nothing back but our gratitude, which is considerable.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://store.steampowered.com/app/4871310/Desktop_Bouncer__Supporter_Pack/?beta=0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get the Supporter Pack
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="eyebrow centered reveal">Get in Touch</p>
+      <h2 class="section-heading centered reveal rv-d1">Say<br><span class="accent-text">hello</span></h2>
+      <p class="section-sub reveal rv-d2">
+        Press, feedback, bug reports or fan art: all welcome. I read every message.
+      </p>
+
+      <div class="form-wrapper reveal rv-d3">
+        <!-- Web3Forms contact form, async submit in script.js -->
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="access_key" value="656a9566-f5fe-489d-9a36-1c3d3cce19a7" />
+          <input type="hidden" name="subject" value="New message from siegwardgames site" />
+          <input type="hidden" name="redirect" value="false" />
+
+          <!-- Honeypot -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            id="botcheck"
+            style="display:none;"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text"  id="contactName"  name="name"  placeholder="Your name"       required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          </div>
+
+          <div class="form-feedback" id="formFeedback" role="alert" aria-live="polite"></div>
+
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span class="btn-label">Send Message</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <img class="logo-mark logo-mark-sm" src="assets/logo-mark.png" alt="" width="24" height="24" />
+          <span class="footer-name pixel-word">Siegward</span>
+        </div>
+
+        <p class="footer-sub">Made by one human and three balls</p>
+        <p class="footer-copy">&copy; <span id="copyrightYear"></span> Siegward Games. All rights reserved.</p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
